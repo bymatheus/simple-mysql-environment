@@ -1,0 +1,23 @@
+version: '3.8'
+
+# Docker Networks
+networks:
+  project:
+    driver: bridge
+
+# Workflow
+services:
+  mysql:
+    image: mysql:5.7.29
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: teste
+      MYSQL_USER: user
+      MYSQL_PASSWORD: "7cH#fXH{"
+      MYSQL_ROOT_PASSWORD: "7cH#fXH{b~V/AUZb,&PmX4CS%V`%jx"
+    volumes:
+      - ./mysql:/var/lib/mysql/
+    networks:
+      - project
